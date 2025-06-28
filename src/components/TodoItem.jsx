@@ -8,7 +8,7 @@ const priorityColor = {
 
 export default function TodoItem({ todo, onUpdateTodo, onDeleteTodo, onUpdateTodoStatus }) {
   const [isEditMode, setIsEditMode] = useState(false);
-  const [editVal, setEditVal] = useState('');
+  const [editVal, setEditVal] = useState(todo.text);
   const isOverDue = todo.dueDate && new Date(todo.dueDate) < new Date() && !todo.isCompleted;
 
   function handleUpdateTask() {
