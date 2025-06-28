@@ -1,13 +1,14 @@
 import { useEffect, useState } from 'react';
-import { v4 as uuidv4 } from 'uuid';
 import Header from './components/Header';
 import TodoForm from './components/TodoForm';
 import TodoList from './components/TodoList';
 import ThemeToggle from './components/ThemeToggle';
+import { predefinedTasks } from './utils/sampleTasks';
 
+const setDarkModeInitially = true;
 export default function App() {
-  const [todos, setTodos] = useState([]);
-  const [darkMode, setDarkMode] = useState(false);
+  const [todos, setTodos] = useState(predefinedTasks);
+  const [darkMode, setDarkMode] = useState(setDarkModeInitially);
 
   useEffect(() => {
     document.documentElement.classList.toggle('dark', darkMode);
@@ -17,12 +18,7 @@ export default function App() {
     setDarkMode(!darkMode);
   }
 
-  const addTodo = (text) => {
-    const newTodo = {
-      id: uuidv4(),
-      text,
-      isCompleted: false,
-    };
+  const addTodo = (newTodo) => {
     setTodos([...todos, newTodo]);
   };
 
