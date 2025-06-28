@@ -66,12 +66,12 @@ export default function App() {
   }
 
   return (
-    <div className="min-h-screen p-6 transition flex flex-col items-center bg-gray-100 dark:bg-gray-900 dark:text-white">
-      <div className="border-0 py-3 px-5 shadow-xl shadow-gray-500 dark:shadow-xl dark:shadow-gray-700">
+    <div className="p-9 transition flex flex-col items-center">
+      <div className="w-3xl border-0 py-3 px-5 shadow-xl shadow-gray-500 dark:shadow-xl dark:shadow-gray-700">
         <div className="max-w-xl mx-auto">
-          <div className="flex justify-between items-center mb-4">
-            <Header />
-            <ThemeToggle onToggleTheme={toggleTheme} darkMode={darkMode} />
+          <div className="mb-4 flex-row">
+            <div className="flex justify-center"><Header /></div>
+            <div className="flex justify-end"><ThemeToggle onToggleTheme={toggleTheme} darkMode={darkMode} /></div>
           </div>
         </div>
         <TodoForm onAddTodo={addTodo} />

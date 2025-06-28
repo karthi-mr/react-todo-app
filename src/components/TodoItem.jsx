@@ -20,7 +20,7 @@ export default function TodoItem({ todo, onUpdateTodo, onDeleteTodo, onUpdateTod
   }
 
   return (
-    <li className="bg-white dark:bg-gray-800 flex px-4 py-2 rounded shadow-2xl items-start w-full space-x-2  hover:dark:bg-amber-950 hover:bg-amber-200">
+    <li className="bg-white dark:bg-gray-800 flex px-4 py-2 rounded shadow-2xl items-start w-11/12 space-x-2  hover:dark:bg-amber-950 hover:bg-amber-200">
       {isEditMode ? (
         <>
           <input
