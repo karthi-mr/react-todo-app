@@ -67,7 +67,7 @@ export default function App() {
 
   return (
     <div className="p-9 transition flex flex-col items-center">
-      <div className="w-3xl border-0 py-3 px-5 shadow-xl shadow-gray-500 dark:shadow-xl dark:shadow-gray-700">
+      <div className="w-3xl border-0 py-3 px-5 shadow-xl bg-gray-200 dark:bg-gray-500 shadow-gray-500 dark:shadow-xl dark:shadow-gray-700">
         <div className="max-w-xl mx-auto">
           <div className="mb-4 flex-row">
             <div className="flex justify-center"><Header /></div>

@@ -1,6 +1,6 @@
 export default function FilterBar({ filters, setFilters }) {
   return (
-    <div className="flex gap-2 mb-4 flex-wrap">
+    <div className="flex gap-2 mb-4 ml-5 flex-wrap justify-center ">
       {/* priority filter */}
       <select
         className="px-3 py-1 border rounded dark:bg-gray-800 dark:border-gray-600"

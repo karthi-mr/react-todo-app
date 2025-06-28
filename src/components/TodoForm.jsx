@@ -27,7 +27,7 @@ export default function TodoForm({ onAddTodo }) {
   }
 
   return (
-    <form onSubmit={handleSumbit} className="flex gap-2 mb-4">
+    <form onSubmit={handleSumbit} className="flex gap-2 mb-4 ml-5">
       <input
         type="text"
         id="input"
