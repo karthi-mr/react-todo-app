@@ -11,18 +11,17 @@ export default function TodoForm({ onAddTodo }) {
   function handleSumbit(e) {
     e.preventDefault();
 
-    if (!input.trim())
-      return;
+    if (!input.trim()) return;
 
     const newTodo = {
       id: uuidv4(),
       text: input,
       priority,
       dueDate,
-      isCompleted: false
-    }
+      isCompleted: false,
+    };
     onAddTodo(newTodo);
-    setPriority(defaultPriority)
+    setPriority(defaultPriority);
     setInput('');
     setDueDate('');
   }
@@ -43,17 +42,20 @@ export default function TodoForm({ onAddTodo }) {
           className="flex-1 px-3 py-2 border rounded dark:bg-gray-800 dark:border-gray-600"
           value={priority}
           onChange={(e) => setPriority(e.target.value)}>
-            <option>High</option>
-            <option>Medium</option>
-            <option>Low</option>
+          <option>High</option>
+          <option>Medium</option>
+          <option>Low</option>
         </select>
-        <input 
+        <input
           type="date"
-          className="flex-1 px-2 py-2 border rounded dark:bg-gray-800 dark:border-gray-600"
+          className="flex-1 px-2 py-2 border rounded text-black dark:text-white dark:bg-gray-800 dark:border-gray-600"
           value={dueDate}
-          onChange={(e) => setDueDate(e.target.value)} />
+          onChange={(e) => setDueDate(e.target.value)}
+        />
       </div>
-      <button className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-1.5 rounded cursor-pointer">Add</button>
+      <button className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-1.5 rounded cursor-pointer hover:transition-all duration-150 hover:scale-90">
+        Add
+      </button>
     </form>
   );
 }
