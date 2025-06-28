@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { v4 as uuidv4 } from 'uuid';
+import {API_BASE_URL} from '../api/config';
 
 const defaultPriority = 'Medium';
 
@@ -8,7 +9,7 @@ export default function TodoForm({ onAddTodo }) {
   const [priority, setPriority] = useState(defaultPriority);
   const [dueDate, setDueDate] = useState('');
 
-  function handleSumbit(e) {
+  async function handleSumbit(e) {
     e.preventDefault();
 
     if (!input.trim()) return;
@@ -20,7 +21,16 @@ export default function TodoForm({ onAddTodo }) {
       dueDate,
       isCompleted: false,
     };
-    onAddTodo(newTodo);
+
+    const response = await fetch(API_BASE_URL, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ text: newTodo.text, priority: newTodo.priority, dueDate: newTodo.dueDate, completed: false })
+    });
+
+    const saved = await response.json();
+
+    onAddTodo(saved);
     setPriority(defaultPriority);
     setInput('');
     setDueDate('');
