@@ -21,6 +21,16 @@ export default function FilterBar({ filters, setFilters }) {
         <option value="active">Active</option>
         <option value="completed">Completed</option>
       </select>
+
+      {/* sorting */}
+      <select
+        className="px-3 py-1 border rounded dark:bg-gray-800 dark:border-gray-600"
+        value={filters.sortBy}
+        onChange={(e) => setFilters({ ...filters, sortBy: e.target.value })}>
+        <option value="">Sort by</option>
+        <option value="dueDate">Due Date</option>
+        <option value="priority">Priority</option>
+      </select>
     </div>
   );
 }

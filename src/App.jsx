@@ -8,9 +8,10 @@ import FilterBar from './components/FilterBar';
 
 // setting dark mode to true initially
 const setDarkModeInitially = true;
-
 // preDefined filters with priority and status
 const filtersDefined = { priority: '', status: '' };
+// priority map
+const priorityMap = {High: 1, Medium: 2, Low: 3}
 
 export default function App() {
   const [todos, setTodos] = useState(predefinedTasks); // creating state for tasks
@@ -45,7 +46,7 @@ export default function App() {
 
   /* Function to get filtered todos based on priority and status */
   function getFiltersTodos() {
-    return todos.filter((todo) => {
+    let result = todos.filter((todo) => {
       const matchedPriority = filters.priority ? todo.priority === filters.priority : true;
       const matchedStatus =
         filters.status === 'completed'
@@ -55,6 +56,13 @@ export default function App() {
           : true;
       return matchedPriority && matchedStatus;
     });
+
+    if (filters.sortBy === 'dueDate') {
+      result.sort((todo1, todo2) => new Date(todo1.dueDate) - new Date(todo2.dueDate));
+    } else if (filters.sortBy === 'priority') {
+      result.sort((todo1, todo2) => priorityMap[todo1.priority] - priorityMap[todo2.priority]);
+    }
+    return result;
   }
 
   return (
