@@ -11,18 +11,18 @@ export default function TodoItem({ todo, onUpdateTodo, onDeleteTodo, onUpdateTod
   }
 
   return (
-    <li className="bg-white flex justify-between items-center px-4 py-2 rounded shadow">
+    <li className="bg-white dark:bg-black flex justify-between items-center px-4 py-2 rounded shadow-2xl">
       {isEditMode ? (
         <>
           <input
             type="text"
-            className="py-1.5 px-4 border-2"
+            className="py-1.5 px-4 border-2 dark:text-white"
             value={editVal}
             onChange={(e) => setEditVal(e.target.value)}
           />
           <button
             onClick={handleUpdateTask}
-            className="text-white bg-green-800 hover:bg-green-600 font-semibold ml-10 px-4 py-1.5 rounded cursor-pointer">
+            className="text-white dark:text-white bg-green-800 hover:bg-green-600 font-semibold ml-10 px-4 py-1.5 rounded cursor-pointer">
             Update
           </button>
           <button
